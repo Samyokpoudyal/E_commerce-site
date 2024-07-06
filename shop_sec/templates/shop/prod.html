@@ -1,0 +1,36 @@
+{% extends 'shop/base.html' %}
+{% block body %}
+<div class="container">
+    <div class="img">
+        <img src='/cmedia/{{product.img}}'>
+    </div>
+    <div class="details">
+        <h1> Product Details:</h1>
+        <h2><b> {{product.prod_name|capfirst}} </b></h2>
+        <h3> Price : {{product.price}}</h3>
+        <p> {{product.Description}}</p>
+        <a href=" {% url 'cartty' product.id %}"><button  class="btn btn-primary cartty">Add to cart</button></a>
+        <a href="{% url 'order' product.id product.prod_name %}"><button  class="btn btn-primary cartty"> Buy Now</button></a>
+        
+    </div>
+    
+</div>
+{% endblock %}
+{% block css %}
+<style>
+    .container{
+        margin: 15px;
+        display: flex;
+        
+    }
+    .img{
+        padding: 15px;
+        
+    }
+    .details{
+        padding: 15px;
+        
+    }
+    
+</style>
+{% endblock %}

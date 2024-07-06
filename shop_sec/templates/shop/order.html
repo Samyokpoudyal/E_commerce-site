@@ -1,0 +1,68 @@
+{%  extends 'shop/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+
+<div class="kora">
+    
+<form method="post">
+    {% csrf_token %}
+    <div class="container my-3">
+        <h2> Place your order </h2>
+        <div class="l1 my-3">
+            <div class="name mr-4">
+                <label>Name</label> 
+                {{form.name}}
+            </div>
+            <div class="address ml-4">
+                <label>C-Address</label> 
+                {{form.caddress}}
+            </div>
+            
+        </div>
+
+        <div class="l3 my-3">
+            <div class="name mr-4">
+                <label>Email</label> 
+                {{form.email}}
+            </div>
+            <div class="address ml-4">
+                <label>M-Address</label> 
+                 {{form.maddress}}
+            </div>
+        </div><br>
+        <div class="l1">
+            <div class="name mr-4">
+                <label>Phone</label> 
+                {{form.phone}}<br><br>
+                <button class="btn btn-primary cartty ml-5" > Place Your Order</button>
+            </div>
+            <div class="address ml-4">
+                <label>Quantity</label> 
+                {{form.quantity}}
+                
+            </div>
+        
+        
+             
+    </div>
+</form>
+    
+</div>
+
+{% endblock %}
+{% block css %}
+<style>
+   .l1{
+    display: flex;
+    
+   }
+   .l3{
+    display: flex;
+    
+   }
+   
+</style>
+{% endblock %}
+
+

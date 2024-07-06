@@ -1,0 +1,46 @@
+{% extends 'shop/base.html' %}
+{% block body %}
+
+<script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+     <h1> &nbsp; ITEMS </h1>
+    {% for items in product %}
+    <div class="container mx-3 ">
+        <div class="img">
+            <img src='/cmedia/{{items.img}}' alt="Not Found"> 
+        </div>
+        <div class="items ml-3">
+        <h4> Product Name </h4> <h5>{{items.prod_name}} </h5>
+        <h4> Category</h4>
+        <h5> {{items.category}} </h5>
+        <h4> Sub-Category</h4>
+        <h5>{{items.sub_category}}</h5>
+        <h4> Price</h4>
+        <h5>Rs {{items.price}}</h5>
+        <h4>Discount</h4>
+        <h5>Rs {{items.discount}}</h5>
+        <h4> Description</h4>
+        <h5>{{items.Description}}</h5>
+        <a href="{% url 'remove' items.id %}"><button  class="btn btn-primary cartty mb-2">Remove</button></a>
+        <a href="{% url 'order' items.id  items.prod_name%}"><button  class="btn btn-primary cartty mb-2">Place order</button></a>
+    </div>
+    </div>
+    {% endfor %}
+{% endblock %}
+{% block css %}
+<style>
+    .container{
+        margin-top: 15px;
+        
+        display: flex;
+    }
+    .items{
+        margin-left: 15px;
+    }
+     
+</style>
+
+{% endblock %}
+{% block js %}
+
+{% endblock %}
